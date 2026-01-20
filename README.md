@@ -4,6 +4,19 @@ Grasping Pipeline using Ufactory xArm7. Picking up utensils and sorting them aut
 The Goal of this project is to enhance a robotic grasping system. The target deployment is for example a hawker center, where the robot assists in clearing trays for sorting utensils for the washing process.
 The operation involves heavily cluttered scenes, where multiple utensils may overlap or be stacked inside bowls and plates.
 
+# AI_Planner
+Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules:
+- camera.py: starting realsense camera with python sdk
+- camera_ros.py: getting data from ros2
+- detection.py: used for object detection using yolo world
+- deterministic_planner:
+- graspnet.py
+- planner.py
+- planner_normal.py
+- segmentation.py
+- vertical.py
+- visualization.py
+
 # Credits
 * **GraspNet**
 @article{fang2023robust,
