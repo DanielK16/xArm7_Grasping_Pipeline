@@ -5,7 +5,7 @@ The Goal of this project is to enhance a robotic grasping system. The target dep
 The operation involves heavily cluttered scenes, where multiple utensils may overlap or be stacked inside bowls and plates.
 
 # Overview System
-[system_overview]: ![System_Overview](https://github.com/user-attachments/assets/03287d5c-d121-4554-9fdd-f9edc027b774)
+![System_Overview] (https://github.com/DanielK16/xArm7_Grasping_Pipeline/blob/main/images/System_Overview.jpeg)
 
 
 # AI_Planner (conda env python=3.10)
