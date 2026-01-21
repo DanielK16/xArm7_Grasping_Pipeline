@@ -4,7 +4,8 @@ Grasping Pipeline using Ufactory xArm7. Picking up utensils and sorting them aut
 The Goal of this project is to enhance a robotic grasping system. The target deployment is for example a hawker center, where the robot assists in clearing trays for sorting utensils for the washing process.
 The operation involves heavily cluttered scenes, where multiple utensils may overlap or be stacked inside bowls and plates.
 
-# Overview System
+# Overview System Pick and Place
+The system consits of three stages: Detection, Planning, Execution
 ![System_Overview](https://github.com/DanielK16/xArm7_Grasping_Pipeline/blob/main/images/System_Overview.jpeg)
 
 
