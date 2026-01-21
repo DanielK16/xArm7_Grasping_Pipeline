@@ -1,0 +1,81 @@
+{
+    "drop_points": {
+        "cup": [46,12,35,42,46,68,212],
+        "bowl": [-30,-5,-30,29,-48,70,-135],
+        "bowl_orange": [-30,-5,-30,29,-48,70,-135],
+        "bowl_green": [-30,-5,-30,29,-48,70,-135],
+        "spoon": [-70,14,-54,54,16,50,-42],
+        "spoon_orange": [-70,14,-54,54,16,50,-42],
+        "chopstick": [-122,-38,21,16,-85,70,128],
+        "plate": [62.7,31.6,7.5,89.9,0,59.5,0],
+        "no_label": [62.7,31.6,7.5,89.9,0,59.5,0]
+    },
+    "gripper_pos": {
+        "cup": 0.850,
+        "bowl": 0.220,
+        "bowl_orange": 0.220,
+        "bowl_green" : 0.220,
+        "spoon": 0.500,
+        "spoon_orange": 0.500,
+        "chopstick": 0.400,
+        "plate": 0.300,
+        "no_label": 0.850
+    },
+    "offset_tcp": {
+        "cup": 0.055,
+        "bowl": 0.015,
+        "bowl_orange": 0.015,
+        "bowl_green": 0.015,
+        "spoon": -0.00,
+        "spoon_orange": -0.00,
+        "chopstick": -0.002,
+        "plate": 0.01,
+        "no_label": 0
+    },
+    "tcp_load": {
+        "cup": 1.137,
+        "bowl": 1.137,
+        "bowl_orange": 1.137,
+        "bowl_green": 1.137,
+        "spoon": 1.0,
+        "spoon_orange": 1.0,
+        "chopstick": 1.0,
+        "plate": 1.137,
+        "no_label": 1.0
+    },
+    "pre_grasp_offset": {
+        "cup": 0.06,
+        "bowl": 0.05,
+        "bowl_orange": 0.04,
+        "bowl_green": 0.04,
+        "spoon": 0.04,
+        "spoon_orange": 0.04,
+        "chopstick": 0.04,
+        "plate": 0.04,
+        "no_label": 0.04
+    },
+    "orientation_filter": {
+        "cup": {
+            "tilt_threshold_max": 0.99,
+            "tilt_threshold_min": 0.55
+        },
+        "bowl": {
+            "tilt_threshold_max": 0.80,
+            "tilt_threshold_min": 0.55
+        },
+        "plate": {
+            "tilt_threshold_max": 0.85,
+            "tilt_threshold_min": 0.6
+        }
+    },
+    "grasp_max_width" :{
+        "bowl": 0.02,
+        "cup": 0.085,
+        "no_label": 0.1
+
+    },
+    "safety_z": 59,
+    "starting_pos":[0,-27,0,64,1.5,91,1],
+    "cleaning_coords":[0.324,-0.2947,0.232]
+
+}
