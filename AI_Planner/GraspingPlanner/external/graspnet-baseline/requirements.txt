@@ -1,0 +1,7 @@
+#torch #dont use default version
+tensorboard
+numpy<2
+scipy
+open3d>=0.8
+Pillow
+tqdm
