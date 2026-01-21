@@ -1,0 +1,39 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-12.6/bin/nvcc
+
+cflags = -pthread -B /home/rric/miniforge3/envs/AI_Planner/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O3 -Wall -fPIC -O3 -isystem /home/rric/miniforge3/envs/AI_Planner/include -fPIC -O3 -isystem /home/rric/miniforge3/envs/AI_Planner/include -fPIC -DWITH_CUDA -I/home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src -I/home/rric/miniforge3/envs/AI_Planner/lib/python3.10/site-packages/torch/include -I/home/rric/miniforge3/envs/AI_Planner/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-12.6/include -I/home/rric/miniforge3/envs/AI_Planner/include/python3.10 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1016"' -DTORCH_EXTENSION_NAME=knn_pytorch -std=c++17
+cuda_cflags = -DWITH_CUDA -I/home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src -I/home/rric/miniforge3/envs/AI_Planner/lib/python3.10/site-packages/torch/include -I/home/rric/miniforge3/envs/AI_Planner/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-12.6/include -I/home/rric/miniforge3/envs/AI_Planner/include/python3.10 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1016"' -DTORCH_EXTENSION_NAME=knn_pytorch -gencode=arch=compute_87,code=compute_87 -gencode=arch=compute_87,code=sm_87 -std=c++17
+cuda_dlink_post_cflags = 
+sycl_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+
+
+build /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/build/temp.linux-aarch64-cpython-310/home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/cpu/knn_cpu.o: compile /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/cpu/knn_cpu.cpp
+build /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/build/temp.linux-aarch64-cpython-310/home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/cuda/knn.o: cuda_compile /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/cuda/knn.cu
+build /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/build/temp.linux-aarch64-cpython-310/home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/vision.o: compile /home/rric/AI_Planner/GraspingPlanner/external/graspnet-baseline/knn/src/vision.cpp
+
+
+
+
+
+
+
+
