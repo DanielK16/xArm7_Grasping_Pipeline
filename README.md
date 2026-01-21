@@ -25,10 +25,10 @@ Use DEMO_BASH_LLM for planning what to grasp with Ollama.
 
 
 # ros2_ws
-ai_planner_ros: Acts as the bridge between AI perception and motion planning.
+-ai_planner_ros: Acts as the bridge between AI perception and motion planning.
   - moveit_pub.py: Publishes grasp candidates from JSON files as ROS 2 PoseArray messages.
   - scene_spawner.py: Maintains the MoveIt2 planning scene with static collision objects like tables and safety boundaries.
-ai_robot_control: Manages the physical execution.
+-ai_robot_control: Manages the physical execution.
   - moveit_run_node.cpp:Executes the grasping sequence (Pre-grasp, Grasp, Lift, and Drop) using the Pilz Industrial Motion Planner for precise linear and PTP movements.
 # Credits
 * **GraspNet**
