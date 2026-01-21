@@ -5,7 +5,7 @@ The Goal of this project is to enhance a robotic grasping system. The target dep
 The operation involves heavily cluttered scenes, where multiple utensils may overlap or be stacked inside bowls and plates.
 
 # Overview System Pick and Place
-The system consits of three stages: Detection, Planning, Execution
+The system is divided into three functional stages: Detection, Planning, and Execution.
 ![System_Overview](https://github.com/DanielK16/xArm7_Grasping_Pipeline/blob/main/images/System_Overview.jpeg)
 
 
@@ -13,20 +13,23 @@ The system consits of three stages: Detection, Planning, Execution
 Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules_e:
 Use DEMO_BASH_DETERMINISTIC for planning what to grasp deterministic.
 Use DEMO_BASH_LLM for planning what to grasp with Ollama.
-- camera.py: starting realsense camera with python sdk
-- camera_ros.py: getting data from ros2
-- detection.py: used for object detection using yolo world
-- deterministic_planner: 
-- graspnet.py: compute 6DOF grasps using graspnet-baseline
-- planner.py: 
-- planner_normal.py
-- segmentation.py
-- vertical.py
-- visualization.py
+- camera.py: starting realsense camera with python realsense sdk
+- camera_ros.py: getting data from realsense camera
+- detection.py: Utilizes YOLO World to identify and localize various utensils such as cups, bowls, spoons, and chopsticks with high confidence.
+- deterministic_planner: Implements a rule-based hierarchy to prioritize grasping operations. It uses a four-tier system to ensure complex cluttered arrangements (e.g., clearing a cup's contents) are resolved before simpler surface-level tasks.
+- graspnet.py: Computes complex grasp candidates for volumetric items like bowls using GraspNet-baseline.
+- planner.py: Implements an Ollama framework to use an VLM model for Decision what to grasp next.
+- planner_normal.py: #OLD VERSION
+- segmentation.py: Employs the Segment Anything Model (SAM) to generate precise object masks and analyze spatial relationships, identifying if objects are stacked or contained within others.
+- vertical.py: A geometric solver for robust top-down grasping of thin items like spoons or chopsticks using RGB-D data.
+
 
 # ros2_ws
-ai_planner_ros: Used for publishing scene_data from AI_Planner. Creates planning scene for MoveIt2.
-ai_robot_control: Used for execution with MoveIt2.
+ai_planner_ros: Acts as the bridge between AI perception and motion planning.
+  moveit_pub.py: Publishes grasp candidates from JSON files as ROS 2 PoseArray messages.
+  scene_spawner.py: Maintains the MoveIt2 planning scene with static collision objects like tables and safety boundaries.
+ai_robot_control: Manages the physical execution.
+  moveit_run_node.cpp:Executes the grasping sequence (Pre-grasp, Grasp, Lift, and Drop) using the Pilz Industrial Motion Planner for precise linear and PTP movements.
 # Credits
 * **GraspNet**
 @article{fang2023robust,
@@ -36,7 +39,7 @@ ai_robot_control: Used for execution with MoveIt2.
   year={2023},
   publisher={SAGE Publications Sage UK: London, England}
 }
-
+* **GraspNet**
 @inproceedings{fang2020graspnet,
   title={GraspNet-1Billion: A Large-Scale Benchmark for General Object Grasping},
   author={Fang, Hao-Shu and Wang, Chenxi and Gou, Minghao and Lu, Cewu},
@@ -44,7 +47,6 @@ ai_robot_control: Used for execution with MoveIt2.
   pages={11444--11453},
   year={2020}
 }
-
 * **SAM 2**
 @article{ravi2024sam2,
   title={SAM 2: Segment Anything in Images and Videos},
