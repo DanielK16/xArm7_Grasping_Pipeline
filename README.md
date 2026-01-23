@@ -23,7 +23,14 @@ Use DEMO_BASH_LLM for planning what to grasp with Ollama.
 - segmentation.py: Employs the Segment Anything Model (SAM) to generate precise object masks and analyze spatial relationships, identifying if objects are stacked or contained within others.
 - vertical.py: A geometric solver for robust top-down grasping of thin items like spoons or chopsticks using RGB-D data.
 
-
+Install conda env (on JETSON AGX ORIN with Cuda 12.6):
+conda create -n AI_Planner python==3.10
+conda activate AI_Planner
+conda env update --file requirements.yml
+!install correct torch version for cuda system!
+pip install --force-reinstall --no-cache-dir -U torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://pypi.jetson-ai-lab.io/jp6/cu126
+pip install numpy==1.23.4
+pip install opencv-python==4.11.0.86
 # ros2_ws
 ai_planner_ros: Acts as the bridge between AI perception and motion planning.
   - moveit_pub.py: Publishes grasp candidates from JSON files as ROS 2 PoseArray messages.
