@@ -22,6 +22,23 @@ This project was developed on the following hardware and software:
 | **Driver Version**| 540.4.0                                         | `nvidia-smi`                    |
 | **ROS 2 Distro** | Humble                                           | `printenv ROS_DISTRO`           |
 
+# Install
+Build ROS2 Workspace correct step by step:
+cd xArm7_Grasping_Pipeline/ros2_ws/src
+colcon build --packages-select ai_planner_ros ai_robot_control pymoveit2 --symlink-install
+
+For the Intel Realsense D435i Camera to work correctly on the Jetson agx Orin follow these installation guide:
+1. **SDK (LibRealSense):** Use [Install Librealsense for Linux](https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages).
+   check with: realsense-viewer
+3. **ROS 2 Wrapper:** Install by source inside the ros2_ws/src [realsense-ros](https://github.com/realsenseai/realsense-ros) following the official instructions for the Humble branch.
+  check with: ros2 launch ...
+              ros2 topic list
+
+I have modified the xarmros2 package by Ufactory
+changed kinematics solver and added colcon ignore to gazebo
+Original:
+colcon build my package!
+
 # AI_Planner (conda env python=3.10)
 Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules_e:
 Use DEMO_BASH_DETERMINISTIC for planning what to grasp deterministic.
