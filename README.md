@@ -26,18 +26,29 @@ This project was developed on the following hardware and software:
 Build ROS2 Workspace correct step by step:
 cd xArm7_Grasping_Pipeline/ros2_ws/src
 colcon build --packages-select ai_planner_ros ai_robot_control pymoveit2 --symlink-install
+   
+** xArm7 ROS_2 wrapper **
+This project uses a customized version of the [official Ufactory xarm_ros2 repository](https://github.com/xArm-Developer/xarm_ros2).
+Modifications:
+- changed Kinematics Solver [Pick IK](https://github.com/PickNikRobotics/pick_ik?tab=readme-ov-file)
+  -> you can adapt the solver settings inside: ~/xArm7_Grasping_Pipeline/ros2_ws/src/xarm_ros2/xarm_moveit_config/config/xarm7/kinematics.yaml
+```bash
+cd ~/xArm7_Grasping_Pipeline/ros2_ws/
+# Install Pick IK
+sudo apt install ros-$ROS_DISTRO-pick-ik
+# Build ros2 workspace
+colcon build --symlink-install --packages-select xarm_msgs xarm_api xarm_controller xarm_description xarm_moveit_config xarm_moveit_servo xarm_planner xarm_sdk d435i_xarm_setup --symlink-install
+# Source Workspace
+source install/setup.bash
+```
 
+** Realsense D435i camera **
 For the Intel Realsense D435i Camera to work correctly on the Jetson agx Orin follow these installation guide:
 1. **SDK (LibRealSense):** Use [Install Librealsense for Linux](https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages).
    check with: realsense-viewer
 3. **ROS 2 Wrapper:** Install by source inside the ros2_ws/src [realsense-ros](https://github.com/realsenseai/realsense-ros) following the official instructions for the Humble branch.
   check with: ros2 launch ...
               ros2 topic list
-
-I have modified the xarmros2 package by Ufactory
-changed kinematics solver and added colcon ignore to gazebo
-Original:
-colcon build my package!
 
 # AI_Planner (conda env python=3.10)
 Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules_e:
