@@ -24,9 +24,12 @@ This project was developed on the following hardware and software:
 
 # Install
 Build ROS2 Workspace correct step by step:
+** Build Packages **
+```bash
 cd xArm7_Grasping_Pipeline/ros2_ws/src
 colcon build --packages-select ai_planner_ros ai_robot_control pymoveit2 --symlink-install
-   
+ ```
+  
 ** xArm7 ROS_2 wrapper **
 This project uses a customized version of the [official Ufactory xarm_ros2 repository](https://github.com/xArm-Developer/xarm_ros2).
 Modifications:
@@ -46,8 +49,8 @@ source install/setup.bash
 For the Intel Realsense D435i Camera to work correctly on the Jetson agx Orin follow these installation guide:
 1. **SDK (LibRealSense):** Use [Install Librealsense for Linux](https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages).
    check with: realsense-viewer
-3. **ROS 2 Wrapper:** Install by source inside the ros2_ws/src [realsense-ros](https://github.com/realsenseai/realsense-ros) following the official instructions for the Humble branch.
-  check with: ros2 launch ...
+3. **ROS 2 Wrapper:** Install ros2 wrapper with apt [realsense-ros](https://github.com/realsenseai/realsense-ros) following the official instructions for the Humble branch.
+  check with: ros2 launch realsense2_camera rs_launch.py 
               ros2 topic list
 
 # AI_Planner (conda env python=3.10)
