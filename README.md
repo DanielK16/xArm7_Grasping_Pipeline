@@ -14,13 +14,13 @@ This project was developed on the following hardware and software:
 
 | Component         | Details                                         | Command to Check                |
 | :---------------- | :---------------------------------------------- | :------------------------------ |
-| **Hardware** | Jetson AGX Orin Development Kit 64GB            
-| **OS Version** | Ubuntu 22.04.5 LTS (Jammy)                      | `lsb_release -a`                |
-| **JetPack** | 6.1                                          
-| **L4T Release** | R36.4.7                                         | `cat /etc/nv_tegra_release`     |
-| **CUDA Version** | 12.6.68                                         | `nvcc --version`                |
+| **Hardware** | Jetson AGX Orin Development Kit 64GB                 |                                 |
+| **OS Version** | Ubuntu 22.04.5 LTS (Jammy)                         | `lsb_release -a`                |
+| **JetPack** | 6.1                                                   | `cat /etc/nv_tegra_release`     |
+| **L4T Release** | R36.4.7                                           | `cat /etc/nv_tegra_release`     |
+| **CUDA Version** | 12.6.68                                          | `nvcc --version`                |
 | **Driver Version**| 540.4.0                                         | `nvidia-smi`                    |
-| **ROS 2 Distro** | Humble                                          | `printenv ROS_DISTRO`           |
+| **ROS 2 Distro** | Humble                                           | `printenv ROS_DISTRO`           |
 
 # AI_Planner (conda env python=3.10)
 Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules_e:
