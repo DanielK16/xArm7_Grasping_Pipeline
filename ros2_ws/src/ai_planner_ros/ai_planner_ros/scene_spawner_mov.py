@@ -182,7 +182,7 @@ class SceneSpawner(Node):
         scene.object_colors.append(self.create_color("ex_box", 1.0, 0.0, 1.0))
 
         # 11. Example Mesh (ROTATED 180 deg around Y)
-        mesh_path = "/home/rric/AI_Planner/GraspingPlanner/PC_2_MESH/output_data/bowl_green.stl"
+        mesh_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/PC_2_MESH/output_data/bowl_green.stl"
         mesh_prim = self.load_mesh(mesh_path)
 
         if mesh_prim:

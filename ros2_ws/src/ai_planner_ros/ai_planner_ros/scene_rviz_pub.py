@@ -19,8 +19,8 @@ class WorldFixedCloudPublisher(Node):
         super().__init__('world_fixed_cloud_publisher')
 
         # File paths 
-        self.color_path = "/home/rric/AI_Planner/GraspingPlanner/scene_data/color.png"
-        self.depth_path = "/home/rric/AI_Planner/GraspingPlanner/scene_data/depth.png"
+        self.color_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/color.png"
+        self.depth_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/depth.png"
 
         # Frame settings
         self.world_frame = "link_base"

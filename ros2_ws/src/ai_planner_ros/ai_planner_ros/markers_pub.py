@@ -28,8 +28,8 @@ class GraspVisualizer(Node):
         self.source_frame = "camera_color_optical_frame"
         
         # Paths to Json Grasps and Meshes of gripper
-        self.json_path = '/home/rric/AI_Planner/GraspingPlanner/scene_data/grasp_points.json'
-        self.mesh_dir = '/home/rric/ros2_ws/src/xarm_ros2/xarm_description/meshes/gripper/xarm'
+        self.json_path = '/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/grasp_points.json'
+        self.mesh_dir = '/home/rric/xArm7_Grasping_Pipeline/ros2_ws/src/xarm_ros2/xarm_description/meshes/gripper/xarm'
         
         # Top Grasps Color
         self.grasp_colors = [

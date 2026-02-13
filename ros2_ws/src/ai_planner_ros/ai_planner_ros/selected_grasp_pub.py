@@ -34,8 +34,8 @@ class SelectedGraspPub(Node):
         self.depth_factor = 1000.0  # Conversion factor (mm to m)
 
         # File paths for scene data
-        self.depth_img_path = "/home/rric/AI_Planner/GraspingPlanner/scene_data/depth.png"
-        self.json_path = "/home/rric/AI_Planner/GraspingPlanner/scene_data/selected_grasp.json"
+        self.depth_img_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/depth.png"
+        self.json_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/selected_grasp.json"
 
         # Execution timer (5 Hz / every 200ms)
         self.timer = self.create_timer(0.2, self.callback)

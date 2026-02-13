@@ -24,7 +24,7 @@ class Calibrate_Tray(Node):
         # 3. Vision Setup
         self.rgb_img_sub = self.create_subscription(Image, '/camera/camera/color/image_raw', self.camera_callback, 1)
         
-        yolo_path = "/home/rric/AI_Planner/GraspingPlanner/models/yolov8x-worldv2.pt"
+        yolo_path = "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/models/yolov8x-worldv2.pt"
         self.model = YOLOWorld(yolo_path)
         self.model.set_classes(["brown rectangle tray"])
 

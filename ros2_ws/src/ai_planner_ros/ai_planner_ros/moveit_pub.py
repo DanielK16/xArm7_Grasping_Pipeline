@@ -21,7 +21,7 @@ class MoveItGraspPublisherRaw(Node):
         self.pose_array_pub = self.create_publisher(PoseArray, '/moveit_grasp_candidates', qos_profile)
         
         # path and frames
-        self.json_path = '/home/rric/AI_Planner/GraspingPlanner/scene_data/grasp_points.json'
+        self.json_path = '/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/grasp_points.json'
         self.camera_frame = "camera_color_optical_frame"
         
         self.last_mtime = 0
