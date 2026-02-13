@@ -39,6 +39,7 @@ Modifications:
 cd ~/xArm7_Grasping_Pipeline/ros2_ws/
 # Install Pick IK
 sudo apt install ros-$ROS_DISTRO-pick-ik
+pip install trimesh
 # Build ros2 workspace
 colcon build --symlink-install --packages-select xarm_msgs xarm_api xarm_controller xarm_description xarm_moveit_config xarm_moveit_servo xarm_planner xarm_sdk d435i_xarm_setup --symlink-install
 # Source Workspace
