@@ -24,6 +24,7 @@ This project was developed on the following hardware and software:
 
 # Install
 Build ROS2 Workspace correct step by step:
+
 ** Build Packages **
 ```bash
 cd xArm7_Grasping_Pipeline/ros2_ws/src
@@ -54,6 +55,17 @@ For the Intel Realsense D435i Camera to work correctly on the Jetson agx Orin fo
   check with: ros2 launch realsense2_camera rs_launch.py 
               ros2 topic list
 
+** Install conda env (on JETSON AGX ORIN with Cuda 12.6): **
+```bash
+conda create -n AI_Planner python==3.10
+conda activate AI_Planner
+conda env update --file requirements.yml
+#install correct torch version for cuda system!
+pip install --force-reinstall --no-cache-dir -U torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://pypi.jetson-ai-lab.io/jp6/cu126
+pip install numpy==1.23.4
+pip install opencv-python==4.11.0.86
+```
+
 # AI_Planner (conda env python=3.10)
 Python Programm handling Object Detection, Segmentation, Planning and Grasp Generation using following modules_e:
 Use DEMO_BASH_DETERMINISTIC for planning what to grasp deterministic.
@@ -68,14 +80,7 @@ Use DEMO_BASH_LLM for planning what to grasp with Ollama.
 - segmentation.py: Employs the Segment Anything Model (SAM) to generate precise object masks and analyze spatial relationships, identifying if objects are stacked or contained within others.
 - vertical.py: A geometric solver for robust top-down grasping of thin items like spoons or chopsticks using RGB-D data.
 
-# Install conda env (on JETSON AGX ORIN with Cuda 12.6):
-conda create -n AI_Planner python==3.10
-conda activate AI_Planner
-conda env update --file requirements.yml
-#install correct torch version for cuda system!
-pip install --force-reinstall --no-cache-dir -U torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://pypi.jetson-ai-lab.io/jp6/cu126
-pip install numpy==1.23.4
-pip install opencv-python==4.11.0.86
+
 
 # ros2_ws
 ai_planner_ros: Acts as the bridge between AI perception and motion planning.
@@ -83,7 +88,9 @@ ai_planner_ros: Acts as the bridge between AI perception and motion planning.
   - scene_spawner.py: Maintains the MoveIt2 planning scene with static collision objects like tables and safety boundaries.
 ai_robot_control: Manages the physical execution.
   - moveit_run_node.cpp:Executes the grasping sequence (Pre-grasp, Grasp, Lift, and Drop) using the Pilz Industrial Motion Planner for precise linear and PTP movements.
+
 # Credits
+
 * **GraspNet**
 @article{fang2023robust,
   title={Robust grasping across diverse sensor qualities: The GraspNet-1Billion dataset},
@@ -91,15 +98,15 @@ ai_robot_control: Manages the physical execution.
   journal={The International Journal of Robotics Research},
   year={2023},
   publisher={SAGE Publications Sage UK: London, England}
-}
+
 * **GraspNet**
 @inproceedings{fang2020graspnet,
   title={GraspNet-1Billion: A Large-Scale Benchmark for General Object Grasping},
   author={Fang, Hao-Shu and Wang, Chenxi and Gou, Minghao and Lu, Cewu},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition(CVPR)},
   pages={11444--11453},
-  year={2020}
-}
+  year={2020}}
+  
 * **SAM 2**
 @article{ravi2024sam2,
   title={SAM 2: Segment Anything in Images and Videos},
