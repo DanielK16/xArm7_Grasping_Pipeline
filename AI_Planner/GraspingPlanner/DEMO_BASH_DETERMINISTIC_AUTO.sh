@@ -90,7 +90,7 @@ position_window "UFactory Studio" "0,1000,777,920,423"
 # 2 Start Cleaning
 #read -p ">>> Press Enter to start <<<"
 while true; do
-    read -p ">>> Press Enter to start <<<"
+    #read -p ">>> Press Enter to start <<<"
     cleanup_files
     # main.py
     kill -SIGUSR1 $LIVE_PID
