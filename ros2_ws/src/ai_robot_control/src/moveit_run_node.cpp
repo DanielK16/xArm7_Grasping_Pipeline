@@ -306,8 +306,8 @@ int main(int argc, char * argv[]) {
     node->declare_parameter<double>("joint_state_monitor.max_expected_joint_state_delay", 0.5);
 
     // Get Parameters
-    std::string config_path = node->declare_parameter<std::string>("config_path", "/home/rric/ros2_ws/src/ai_robot_control/config/config_grasps.json");
-    std::string yolo_path = node->declare_parameter<std::string>("yolo_path", "/home/rric/AI_Planner/GraspingPlanner/scene_data/grasp_points.json");
+    std::string config_path = node->declare_parameter<std::string>("config_path", "/home/rric/xArm7_Grasping_Pipeline/ros2_ws/src/ai_robot_control/config/config_grasps.json");
+    std::string yolo_path = node->declare_parameter<std::string>("yolo_path", "/home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/scene_data/grasp_points.json");
     std::string grasp_topic = node->declare_parameter<std::string>("grasp_topic", "/moveit_grasp_candidates");
 
     // Executor for TF/MoveIt background tasks
@@ -452,7 +452,7 @@ int main(int argc, char * argv[]) {
         RCLCPP_INFO(node->get_logger(), "Adding Mesh: %s", detected_label.c_str());
         Eigen::Vector3d scale(1.0, 1.0, 1.0); 
         // Create Mesh
-        std::string mesh_path = "file:///home/rric/AI_Planner/GraspingPlanner/PC_2_MESH/output_data/" + detected_label + ".stl";
+        std::string mesh_path = "file:///home/rric/xArm7_Grasping_Pipeline/AI_Planner/GraspingPlanner/PC_2_MESH/output_data/" + detected_label + ".stl";
         shapes::Mesh* m = shapes::createMeshFromResource(mesh_path, scale);
 
         if (m) {
